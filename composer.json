@@ -17,7 +17,7 @@
         "rmzamora/comment-bundle": "2.5.0.*"
     },
     "autoload": {
-        "psr-4": { "Rz\\AdminBundle\\": "" }
+        "psr-4": { "Rz\\CommentBundle\\": "" }
     },
     "extra": {
         "branch-alias": {

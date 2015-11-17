@@ -55,13 +55,12 @@ class ThreadAdmin extends BaseThreadAdmin
         $listMapper->addIdentifier('id');
 
         if (interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
-            $listMapper->add('category');
+            $listMapper->add('category', 'text', array('footable'=>array('attr'=>array('data-breakpoints'=>array('all')))));
         }
 
         $listMapper
-            ->add('permalink', 'text')
-            ->add('numComments')
-            ->add('isCommentable', 'boolean', array('editable' => true))
+            ->add('permalink', 'text', array('footable'=>array('attr'=>array('data-breakpoints'=>array('all')))))
+            ->add('isCommentable', 'boolean', array('editable' => true, 'footable'=>array('attr'=>array('data-breakpoints'=>array('xs', 'sm')))))
         ;
     }
 

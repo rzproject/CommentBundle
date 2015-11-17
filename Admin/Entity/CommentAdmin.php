@@ -39,6 +39,7 @@ class CommentAdmin extends BaseCommentAdmin
             ->add('website')
             ->add('state')
             ->add('private')
+            ->add('createdAt', 'doctrine_orm_datetime_range', array('field_type' => 'sonata_type_datetime_range_picker'))
         ;
     }
 
@@ -48,12 +49,10 @@ class CommentAdmin extends BaseCommentAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('body', 'text')
-            ->add('createdAt', 'datetime')
-            ->add('note', 'float')
-            ->add('state', 'string', array('template' => 'SonataCommentBundle:CommentAdmin:list_status.html.twig'))
-            ->add('private', 'boolean', array('editable' => true))
+            ->add('custom', 'string', array('template' => 'RzCommentBundle:CommentAdmin:list_comment_custom.html.twig', 'label' => 'Comment'))
+            ->add('createdAt', 'datetime', array('footable'=>array('attr'=>array('data-breakpoints'=>array('all')))))
+            ->add('state', 'string', array('template' => 'SonataCommentBundle:CommentAdmin:list_status.html.twig', 'footable'=>array('attr'=>array('data-breakpoints'=>array('all')))))
+            ->add('private', 'boolean', array('editable' => true, 'footable'=>array('attr'=>array('data-breakpoints'=>array('all')))))
         ;
     }
 
